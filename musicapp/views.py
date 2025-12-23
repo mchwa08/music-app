@@ -13,7 +13,7 @@ def add_song(request):
         artist = request.POST['artist']
         title = request.POST['title']
         genre = request.POST['genre']
-        cover_image = request.FILES.GET['cover_image']
+        cover_image = request.FILES.POST['cover_image']
         song.objects.create(artist=artist, title=title, genre=genre, cover_image=cover_image)
         return redirect('show_songs')
     return render(request, 'add_song.html')
